@@ -4,9 +4,16 @@ from docx import Document
 
 
 def clean_text(text):
-    text = " ".join(text.split())
-
-    return text
+    if not text:
+        return ""
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    paragraphs = [p.strip() for p in text.split("\n\n")]
+    cleaned_paragraphs = []
+    for p in paragraphs:
+        cleaned_p = " ".join(p.split())
+        if cleaned_p:
+            cleaned_paragraphs.append(cleaned_p)
+    return "\n\n".join(cleaned_paragraphs)
 
 def read_pdf(file_path):
     text_parts = []
@@ -24,7 +31,7 @@ def read_docx(file_path):
     for paragraph in document.paragraphs:
         if paragraph.text.strip():
             paragraphs.append(paragraph.text.strip())
-    return "\n".join(paragraphs)
+    return "\n\n".join(paragraphs)
 
 
 def read_txt(file_path):

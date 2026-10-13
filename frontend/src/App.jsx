@@ -671,13 +671,14 @@ function App() {
 
         const retrievedChunks = Array.isArray(data.retrieved_chunks) ? data.retrieved_chunks : [];
 
-        const normalizedAnswer = data.answer || (retrievedChunks.length ? 'Answer generated.' : 'No relevant information was found in the current knowledge base.');
-
-
-
+        const isClarification = data.status === 'clarification_required';
         const clarificationQuestion = data.clarification?.clarification_question || '';
 
-        if (data.status === 'clarification_required' && clarificationQuestion) {
+        const normalizedAnswer = isClarification
+          ? (clarificationQuestion || data.answer || 'Please provide clarification.')
+          : (data.answer || (retrievedChunks.length ? 'Answer generated.' : 'No relevant information was found in the current knowledge base.'));
+
+        if (isClarification && clarificationQuestion) {
 
           setClarificationState({
 
@@ -728,7 +729,7 @@ function App() {
 
         });
 
-        setEmptyMessage(data.answer || data.message || (retrievedChunks.length === 0 ? normalizedAnswer : ''));
+        setEmptyMessage(isClarification ? '' : (data.answer || data.message || (retrievedChunks.length === 0 ? normalizedAnswer : '')));
 
 
 

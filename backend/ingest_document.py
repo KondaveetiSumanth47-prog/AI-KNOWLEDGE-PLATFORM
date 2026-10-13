@@ -30,10 +30,14 @@ chunks = split_text(
 
 embeddings = create_embeddings(chunks)
 
+file_name = os.path.basename(file_path)
+file_ext = os.path.splitext(file_path)[1].lstrip(".")
+
 store_chunks(
     chunks,
     embeddings,
-    source=file_path
+    source=file_name,
+    file_type=file_ext or "txt"
 )
 
 print("Document:", file_path)

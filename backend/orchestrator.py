@@ -111,6 +111,18 @@ class Orchestrator:
                 f"explain {topic_lower}"
             ).capitalize()
 
+        if "tell me about it" in query_lower:
+            return f"Tell me about {topic_text}"
+
+        if "what is this" in query_lower:
+            return f"What is {topic_text}?"
+
+        if "what is that" in query_lower:
+            return f"What is {topic_text}?"
+
+        if "what about this" in query_lower:
+            return f"What about {topic_text}?"
+
         if "tell me more" in query_lower:
             return f"Tell me more about {topic_text}"
 
@@ -184,6 +196,13 @@ class Orchestrator:
             ]
 
             if valid_sources:
+                src = valid_sources[0].lower()
+                if "education" in src:
+                    return "Education"
+                elif "technology" in src:
+                    return "Technology"
+                elif "ai" in src or "intelligence" in src:
+                    return "AI"
                 return valid_sources[0]
 
         return "unknown"
@@ -320,12 +339,17 @@ class Orchestrator:
                 "requires_clarification"
             ):
 
+                clarification_q = clarification_result.get(
+                    "clarification_question",
+                    "Could you specify which topic or concept you want to know about?"
+                )
+
                 response = {
                     "question": query_for_classification,
                     "query": query_for_classification,
                     "query_type": "ambiguous",
                     "classification_confidence": 0.0,
-                    "answer": "",
+                    "answer": clarification_q,
                     "sources": [],
                     "confidence": {
                         "label": "Low",
@@ -399,18 +423,21 @@ class Orchestrator:
 
         if classification.get("query_type") == "ambiguous":
 
+            clarification_q = (
+                clarification_result.get("clarification_question")
+                if clarification_result and clarification_result.get("clarification_question")
+                else "Could you specify which topic or concept you want to know about?"
+            )
+
             response = {
                 "question": query_for_classification,
                 "query": query_for_classification,
                 "query_type": "ambiguous",
                 "classification_confidence": classification.get(
                     "classification_confidence",
-                    0.0
+                    0.90
                 ),
-                "answer": (
-                    "Your question is ambiguous. "
-                    "Please clarify what you want to know."
-                ),
+                "answer": clarification_q,
                 "sources": [],
                 "confidence": {
                     "label": "Low",
@@ -418,7 +445,13 @@ class Orchestrator:
                 },
                 "retrieved_chunks": [],
                 "top_k": effective_top_k,
-                "clarification": clarification_result,
+                "clarification": clarification_result or {
+                    "requires_clarification": True,
+                    "original_query": query_for_classification,
+                    "clarification_question": clarification_q,
+                    "reason": "The query is ambiguous.",
+                    "status": "clarification_required"
+                },
                 "conversation_context": memory_context,
                 "status": "clarification_required",
                 "routing": "clarification"

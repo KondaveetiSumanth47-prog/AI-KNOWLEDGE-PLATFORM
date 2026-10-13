@@ -139,6 +139,36 @@ class AnalyticsService:
     def get_all_queries(self):
         return self._load_data()
 
+    def filter_queries(
+        self,
+        domain=None,
+        query_type=None,
+        date=None,
+        confidence=None,
+        status=None
+    ):
+        data = self._load_data()
+        results = []
+
+        for item in data:
+            if domain and str(item.get("domain", "")).lower() != str(domain).lower():
+                continue
+            if query_type and str(item.get("query_type", "")).lower() != str(query_type).lower():
+                continue
+            if status and str(item.get("status", "")).lower() != str(status).lower():
+                continue
+            if confidence:
+                conf_label = str(item.get("confidence", {}).get("label", "")).lower()
+                if conf_label != str(confidence).lower():
+                    continue
+            if date:
+                ts = str(item.get("timestamp", ""))
+                if not ts.startswith(str(date)):
+                    continue
+            results.append(item)
+
+        return results
+
     def get_summary(self):
         data = self._load_data()
 

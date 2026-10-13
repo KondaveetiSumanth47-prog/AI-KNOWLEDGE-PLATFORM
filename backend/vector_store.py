@@ -133,6 +133,20 @@ def store_chunks(chunks, embeddings, source="unknown", file_type="unknown"):
 
     collection_obj = get_collection()
 
+    import os
+    source_name = os.path.basename(str(source or "unknown"))
+
+    # When re-uploading a document, remove previous chunks for this source to eliminate stale/duplicate entries
+    try:
+        collection_obj.delete(where={"source": source_name})
+    except Exception:
+        pass
+    if source and source != source_name:
+        try:
+            collection_obj.delete(where={"source": str(source)})
+        except Exception:
+            pass
+
     valid_chunks = []
     valid_embeddings = []
     metadata_entries = []
@@ -160,22 +174,17 @@ def store_chunks(chunks, embeddings, source="unknown", file_type="unknown"):
             cleaned_chunk.encode("utf-8")
         ).hexdigest()
 
-        chunk_id = f"{source}_chunk_{i}"
-
-        chunk_ids.append(
-            hashlib.md5(
-                f"{source}:{i}:{content_hash}".encode("utf-8")
-            ).hexdigest()
-        )
+        chunk_id = f"{source_name}_chunk_{i}"
+        chunk_ids.append(chunk_id)
 
         metadata_entries.append(
             {
-                "source": str(source or "unknown"),
+                "source": source_name,
                 "chunk_id": chunk_id,
                 "chunk_index": i,
                 "file_type": str(file_type or "unknown"),
                 "content_hash": content_hash,
-                "citation": str(source or "unknown"),
+                "citation": source_name,
             }
         )
 

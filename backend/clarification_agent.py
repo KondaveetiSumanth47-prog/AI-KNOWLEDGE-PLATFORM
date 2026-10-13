@@ -31,10 +31,31 @@ class ClarificationAgent:
         return (query or "").strip()
 
     def _is_ambiguous(self, query_lower):
-        return any(
-            phrase in query_lower
-            for phrase in self.ambiguous_phrases
-        )
+        cleaned = re.sub(r"[^a-z0-9\s]", " ", query_lower).strip()
+        
+        standalone_ambiguous = {
+            "tell me about it",
+            "what about it",
+            "explain it",
+            "what is this",
+            "tell me more",
+            "what do you mean",
+            "how does it work",
+            "what is that",
+            "what about this",
+            "tell me more about it",
+            "tell me about this",
+            "explain this",
+            "how do i do it",
+        }
+        if cleaned in standalone_ambiguous:
+            return True
+
+        for phrase in self.ambiguous_phrases:
+            if cleaned == phrase or cleaned == f"{phrase} please":
+                return True
+
+        return False
 
     def _is_incomplete(self, query_lower):
         short_query = re.sub(
@@ -45,39 +66,47 @@ class ClarificationAgent:
 
         words = short_query.split()
 
-        if len(words) <= 2:
-            return True
-
-        if query_lower.startswith(
-            ("explain ", "describe ", "summarize ")
-        ) and len(words) <= 4:
+        if len(words) <= 1:
             return True
 
         return False
 
     def _contains_context_dependency(self, query_lower):
-        for pronoun in self.contextual_pronouns:
-            if re.search(rf"\b{pronoun}\b", query_lower):
-                return True
+        cleaned = re.sub(r"[^a-z0-9\s]", " ", query_lower).strip()
+        words = cleaned.split()
+        
+        # Only flag if pronoun is the sole target (e.g., 'explain it', 'what is that')
+        if len(words) <= 4:
+            for pronoun in self.contextual_pronouns:
+                if pronoun in words:
+                    return True
 
         return False
 
     def _has_multi_part_query(self, query_lower):
-        clause_markers = [
-            " and also ",
-            " and ",
-            " or ",
-            " then ",
-            " plus ",
-            " as well as ",
+        comparative_markers = [
+            "difference between",
+            "compare",
+            "distinguish between",
+            "versus",
+            "vs",
+            "relationship between",
+            "differ from",
         ]
-
-        for marker in clause_markers:
-            if marker in query_lower and query_lower.count(" ") > 6:
-                return True
+        if any(cm in query_lower for cm in comparative_markers):
+            return False
 
         if query_lower.count("?") > 1:
             return True
+
+        compound_markers = [
+            " and also ",
+            " as well as ",
+            " additionally ",
+        ]
+        for marker in compound_markers:
+            if marker in query_lower and query_lower.count(" ") > 7:
+                return True
 
         return False
 

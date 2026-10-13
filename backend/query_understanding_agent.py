@@ -18,12 +18,15 @@ class QueryUnderstandingAgent:
 
         # Ambiguous queries
         ambiguous_patterns = [
-            r"^tell me about it$",
-            r"^what about it$",
-            r"^explain it$",
-            r"^what is this$",
-            r"^tell me more$",
-            r"^what do you mean$"
+            r"^tell me about it[\s?!.]*$",
+            r"^what about it[\s?!.]*$",
+            r"^explain it[\s?!.]*$",
+            r"^what is this[\s?!.]*$",
+            r"^what is that[\s?!.]*$",
+            r"^what about this[\s?!.]*$",
+            r"^tell me more[\s?!.]*$",
+            r"^what do you mean[\s?!.]*$",
+            r"^how does it work[\s?!.]*$"
         ]
 
         for pattern in ambiguous_patterns:

@@ -1,0 +1,17 @@
+Artificial Intelligence
+
+Artificial Intelligence, or AI, is a field of computer science focused on creating systems that can perform tasks that normally require human intelligence.
+
+Machine Learning is a subset of Artificial Intelligence in which systems learn patterns from data and use those patterns to make predictions or decisions.
+
+Supervised learning uses labelled training data. Classification and regression are common supervised learning tasks.
+
+Unsupervised learning works with data that does not have predefined labels. Clustering is a common unsupervised learning technique.
+
+Natural Language Processing, or NLP, focuses on enabling computers to process and understand human language.
+
+Retrieval-Augmented Generation, or RAG, combines information retrieval with language generation. A RAG system retrieves relevant information from a knowledge source and uses that information to generate a grounded response.
+
+Vector databases store vector representations of data and can be used to perform semantic similarity searches.
+
+Embeddings are numerical representations of text or other data. Similar meanings can have similar vector representations.

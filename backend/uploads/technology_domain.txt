@@ -1,0 +1,15 @@
+Technology
+
+Cloud computing provides computing resources such as storage, processing power, databases, and software through network-based services.
+
+A database is an organized collection of data that can be stored, managed, and retrieved efficiently.
+
+A relational database stores data in tables consisting of rows and columns. SQL is commonly used to query and manage relational databases.
+
+An API, or Application Programming Interface, allows different software applications to communicate with each other.
+
+REST is an architectural style commonly used for designing web APIs. REST APIs typically use HTTP methods such as GET, POST, PUT, and DELETE.
+
+Git is a distributed version control system used to track changes in source code and collaborate on software projects.
+
+Version control allows developers to maintain different versions of files and helps teams identify and manage changes.

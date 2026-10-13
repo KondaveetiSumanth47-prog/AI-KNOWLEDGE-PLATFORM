@@ -104,6 +104,7 @@ def ask():
                 clarification_response or None
             ),
             top_k=selected_top_k,
+            domain=data.get("domain") or None,
         )
 
     except Exception as exc:
@@ -357,9 +358,24 @@ def analytics_queries():
 
     try:
 
-        queries = (
-            analytics_service.get_all_queries()
-        )
+        domain = request.args.get("domain")
+        query_type = request.args.get("query_type")
+        date = request.args.get("date")
+        confidence = request.args.get("confidence")
+        status = request.args.get("status")
+
+        if any([domain, query_type, date, confidence, status]):
+            queries = analytics_service.filter_queries(
+                domain=domain,
+                query_type=query_type,
+                date=date,
+                confidence=confidence,
+                status=status
+            )
+        else:
+            queries = (
+                analytics_service.get_all_queries()
+            )
 
         return jsonify({
             "status": "success",
