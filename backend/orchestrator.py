@@ -5,17 +5,22 @@ from conversation_memory_agent import ConversationMemoryAgent
 from query_understanding_agent import QueryUnderstandingAgent
 from retrieval_agent import RetrievalAgent
 from response_generation_agent import ResponseGenerationAgent
+from analytics_service import analytics_service
 
 
 class Orchestrator:
+
     def __init__(self, top_k=3, distance_threshold=0.60):
         self.query_agent = QueryUnderstandingAgent()
+
         self.retrieval_agent = RetrievalAgent(
             top_k=top_k,
             distance_threshold=distance_threshold
         )
+
         self.response_agent = ResponseGenerationAgent()
         self.clarification_agent = ClarificationAgent()
+
         self.memory_store = {}
 
     def _get_memory(self, session_id):
@@ -135,13 +140,62 @@ class Orchestrator:
 
         return query
 
+    def _record_analytics(
+        self,
+        query,
+        session_id,
+        query_type="unknown",
+        status="unknown",
+        confidence=None,
+        retrieved_results=None,
+        sources=None,
+        clarification_required=False,
+        routing="unknown",
+        domain="unknown"
+    ):
+        try:
+            analytics_service.record_query(
+                query=query,
+                query_type=query_type,
+                status=status,
+                confidence=confidence or {
+                    "label": "Unknown",
+                    "score": 0.0
+                },
+                retrieved_results=retrieved_results or [],
+                sources=sources or [],
+                clarification_required=clarification_required,
+                session_id=session_id,
+                domain=domain,
+                routing=routing
+            )
+        except Exception as exc:
+            print(f"[WARN] Analytics recording failed: {exc}")
+
+    def _infer_domain(self, sources):
+        if not sources:
+            return "unknown"
+
+        if isinstance(sources, list):
+            valid_sources = [
+                str(source).strip()
+                for source in sources
+                if source
+            ]
+
+            if valid_sources:
+                return valid_sources[0]
+
+        return "unknown"
+
     def process_query(
         self,
         query,
         session_id="default-session",
         original_query=None,
         clarification_response=None,
-        top_k=None
+        top_k=None,
+        domain=None
     ):
         effective_top_k = self.retrieval_agent.top_k
 
@@ -164,8 +218,9 @@ class Orchestrator:
                     original_query,
                     clarification_response
                 )
+
             else:
-                return {
+                response = {
                     "query": "",
                     "query_type": "ambiguous",
                     "classification_confidence": 0.0,
@@ -178,8 +233,23 @@ class Orchestrator:
                     "retrieved_chunks": [],
                     "top_k": effective_top_k,
                     "status": "invalid_query",
-                    "routing": "clarification",
+                    "routing": "clarification"
                 }
+
+                self._record_analytics(
+                    query="",
+                    session_id=session_id,
+                    query_type="ambiguous",
+                    status="invalid_query",
+                    confidence=response["confidence"],
+                    retrieved_results=[],
+                    sources=[],
+                    clarification_required=True,
+                    routing="clarification",
+                    domain=domain or "unknown"
+                )
+
+                return response
 
         memory = self._get_memory(session_id)
 
@@ -217,7 +287,7 @@ class Orchestrator:
                 ),
                 sources=[],
                 clarification=clarification_response,
-                refined_query=target_query,
+                refined_query=target_query
             )
 
             query_for_classification = target_query
@@ -235,7 +305,7 @@ class Orchestrator:
                     "Clarification provided. "
                     "Proceeding with the refined query."
                 ),
-                "status": "clarification_resolved",
+                "status": "clarification_resolved"
             }
 
         else:
@@ -249,7 +319,8 @@ class Orchestrator:
             if clarification_result.get(
                 "requires_clarification"
             ):
-                return {
+
+                response = {
                     "question": query_for_classification,
                     "query": query_for_classification,
                     "query_type": "ambiguous",
@@ -265,15 +336,31 @@ class Orchestrator:
                     "clarification": clarification_result,
                     "conversation_context": memory_context,
                     "status": "clarification_required",
-                    "routing": "clarification",
+                    "routing": "clarification"
                 }
+
+                self._record_analytics(
+                    query=query_for_classification,
+                    session_id=session_id,
+                    query_type="ambiguous",
+                    status="clarification_required",
+                    confidence=response["confidence"],
+                    retrieved_results=[],
+                    sources=[],
+                    clarification_required=True,
+                    routing="clarification",
+                    domain=domain or "unknown"
+                )
+
+                return response
 
         classification = self.query_agent.classify_query(
             query_for_classification
         )
 
         if not isinstance(classification, dict):
-            return {
+
+            response = {
                 "question": query_for_classification,
                 "query": query_for_classification,
                 "query_type": "ambiguous",
@@ -292,12 +379,27 @@ class Orchestrator:
                 "clarification": clarification_result,
                 "conversation_context": memory_context,
                 "status": "classification_failed",
-                "routing": "clarification",
+                "routing": "clarification"
             }
+
+            self._record_analytics(
+                query=query_for_classification,
+                session_id=session_id,
+                query_type="ambiguous",
+                status="classification_failed",
+                confidence=response["confidence"],
+                retrieved_results=[],
+                sources=[],
+                clarification_required=True,
+                routing="clarification",
+                domain=domain or "unknown"
+            )
+
+            return response
 
         if classification.get("query_type") == "ambiguous":
 
-            return {
+            response = {
                 "question": query_for_classification,
                 "query": query_for_classification,
                 "query_type": "ambiguous",
@@ -319,8 +421,23 @@ class Orchestrator:
                 "clarification": clarification_result,
                 "conversation_context": memory_context,
                 "status": "clarification_required",
-                "routing": "clarification",
+                "routing": "clarification"
             }
+
+            self._record_analytics(
+                query=query_for_classification,
+                session_id=session_id,
+                query_type="ambiguous",
+                status="clarification_required",
+                confidence=response["confidence"],
+                retrieved_results=[],
+                sources=[],
+                clarification_required=True,
+                routing="clarification",
+                domain=domain or "unknown"
+            )
+
+            return response
 
         retrieval_result = self.retrieval_agent.retrieve(
             query_for_classification,
@@ -367,7 +484,7 @@ class Orchestrator:
                 "routing": classification.get(
                     "routing",
                     "retrieval"
-                ),
+                )
             }
 
             memory.add_exchange(
@@ -381,6 +498,19 @@ class Orchestrator:
                 refined_query=query_for_classification
             )
 
+            self._record_analytics(
+                query=query_for_classification,
+                session_id=session_id,
+                query_type=response["query_type"],
+                status=response["status"],
+                confidence=response["confidence"],
+                retrieved_results=[],
+                sources=[],
+                clarification_required=clarification_was_provided,
+                routing=response["routing"],
+                domain=domain or "unknown"
+            )
+
             return response
 
         response_result = self.response_agent.generate_response(
@@ -389,7 +519,7 @@ class Orchestrator:
             classification.get(
                 "query_type",
                 "factual"
-            ),
+            )
         )
 
         final_response = {
@@ -430,7 +560,7 @@ class Orchestrator:
             "routing": classification.get(
                 "routing",
                 "retrieval"
-            ),
+            )
         }
 
         memory.add_exchange(
@@ -442,7 +572,27 @@ class Orchestrator:
                 else None
             ),
             sources=final_response["sources"],
-            refined_query=query_for_classification,
+            refined_query=query_for_classification
+        )
+
+        analytics_domain = (
+            domain
+            or self._infer_domain(
+                final_response["sources"]
+            )
+        )
+
+        self._record_analytics(
+            query=query_for_classification,
+            session_id=session_id,
+            query_type=final_response["query_type"],
+            status=final_response["status"],
+            confidence=final_response["confidence"],
+            retrieved_results=retrieved_chunks,
+            sources=final_response["sources"],
+            clarification_required=clarification_was_provided,
+            routing=final_response["routing"],
+            domain=analytics_domain
         )
 
         return final_response
