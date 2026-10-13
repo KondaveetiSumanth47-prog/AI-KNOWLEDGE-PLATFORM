@@ -1,0 +1,1085 @@
+[
+  {
+    "timestamp": "2026-10-07T20:24:04",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is rag",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.518
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "sample.pdf",
+      "Artificial Intelligence is a branch of computer science.docx"
+    ],
+    "clarification_required": false,
+    "domain": "sample.pdf",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T20:34:40",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is rag",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.518
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "sample.pdf",
+      "Artificial Intelligence is a branch of computer science.docx"
+    ],
+    "clarification_required": false,
+    "domain": "sample.pdf",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T20:34:54",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does rag work",
+    "query_type": "procedural",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.474
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "sample.pdf",
+      "Artificial Intelligence is a branch of computer science.docx"
+    ],
+    "clarification_required": false,
+    "domain": "sample.pdf",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T20:35:49",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is the difference between AI and Ml",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-07T20:36:12",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is the difference between AI and Ml what is the difference between Artificial Intelligence and Machine Learning",
+    "query_type": "comparative",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.589
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "sample.docx",
+      "sample.pdf"
+    ],
+    "clarification_required": true,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T20:36:46",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:19:31",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is formative assessment?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.667
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "education_domain.txt"
+    ],
+    "clarification_required": false,
+    "domain": "education_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:20:50",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does project-based learning help students?  Keep Top-3 selected.",
+    "query_type": "procedural",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.576
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "education_domain.txt"
+    ],
+    "clarification_required": false,
+    "domain": "education_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:21:55",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between formative and summative assessment?",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-07T21:22:06",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between formative and summative assessment? What is the difference between formative and summative assessment?",
+    "query_type": "comparative",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.665
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "education_domain.txt"
+    ],
+    "clarification_required": true,
+    "domain": "education_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:24:01",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:24:16",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:24:16",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:24:17",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:24:17",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:25:33",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What does an API allow different software applications to do?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.485
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "technology_domain.txt"
+    ],
+    "clarification_required": false,
+    "domain": "technology_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:27:31",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does a REST API communicate with applications?",
+    "query_type": "procedural",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.564
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "technology_domain.txt"
+    ],
+    "clarification_required": false,
+    "domain": "technology_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:28:13",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between a database and an API?",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-07T21:28:32",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between a database and an API? What is the difference between a database and an API?",
+    "query_type": "comparative",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.524
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "technology_domain.txt"
+    ],
+    "clarification_required": true,
+    "domain": "technology_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:29:48",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Machine Learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:30:22",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:30:25",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:32:07",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Retrieval-Augmented Generation?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.555
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "top_k_test_knowledge_base.txt"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:32:46",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between AI and Machine Learning?",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-07T21:32:54",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is the difference between AI and Machine Learning? What is the difference between AI and Machine Learning?",
+    "query_type": "comparative",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.769
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "ai_domain.txt",
+      "top_k_test_knowledge_base.txt",
+      "sample.docx"
+    ],
+    "clarification_required": true,
+    "domain": "ai_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:33:49",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:33:53",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:33:54",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:34:00",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:34:04",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what is quantum computing?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:35:14",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "tell me about Quantum Computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:35:51",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "tell me about Quantum Computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:36:03",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "tell me about Quantum Computing",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:37:35",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Machine Learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:37:55",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is machine learning?what are the types of machine learning?",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-07T21:38:07",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is machine learning?what are the types of machine learning? What are its types?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.736
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": true,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:40:06",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is machine learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:40:22",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "what are Machine Learning types",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.699
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:46:32",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Machine Learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:46:54",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What are the types of machine learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.702
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:50:06",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is an API?",
+    "query_type": "factual",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:51:13",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What does an API allow different software applications to do?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.485
+    },
+    "retrieved_result_count": 1,
+    "sources": [
+      "technology_domain.txt"
+    ],
+    "clarification_required": false,
+    "domain": "technology_domain.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:51:54",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Machine Learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-07T21:53:39",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "What is Machine Learning?",
+    "query_type": "factual",
+    "status": "success",
+    "confidence": {
+      "label": "Medium",
+      "score": 0.742
+    },
+    "retrieved_result_count": 3,
+    "sources": [
+      "top_k_test_knowledge_base.txt",
+      "ai_domain.txt",
+      "sample.docx"
+    ],
+    "clarification_required": false,
+    "domain": "top_k_test_knowledge_base.txt",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:05:34",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "tell me about this",
+    "query_type": "ambiguous",
+    "status": "clarification_required",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "clarification"
+  },
+  {
+    "timestamp": "2026-10-08T21:12:39",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "tell me about this How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": true,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:20",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:21",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:26",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:26",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:27",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:27",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:27",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:28",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:28",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:28",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:13:57",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:17:08",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:22:26",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG work?",
+    "query_type": "procedural",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.464
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "sample.pdf",
+      "Artificial Intelligence is a branch of computer science.docx"
+    ],
+    "clarification_required": false,
+    "domain": "sample.pdf",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:22:30",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG work?",
+    "query_type": "procedural",
+    "status": "success",
+    "confidence": {
+      "label": "Low",
+      "score": 0.464
+    },
+    "retrieved_result_count": 2,
+    "sources": [
+      "sample.pdf",
+      "Artificial Intelligence is a branch of computer science.docx"
+    ],
+    "clarification_required": false,
+    "domain": "sample.pdf",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:44:15",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:44:15",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  },
+  {
+    "timestamp": "2026-10-08T21:44:15",
+    "session_id": "session-1791383796707-cpvvxu1r",
+    "query": "How does RAG generate a grounded response?",
+    "query_type": "procedural",
+    "status": "no_relevant_information",
+    "confidence": {
+      "label": "Low",
+      "score": 0.0
+    },
+    "retrieved_result_count": 0,
+    "sources": [],
+    "clarification_required": false,
+    "domain": "unknown",
+    "routing": "retrieval"
+  }
+]
